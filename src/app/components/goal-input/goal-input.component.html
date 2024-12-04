@@ -1,0 +1,24 @@
+<div class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg text-white">
+    <h2 class="text-2xl font-bold mb-4">Set Your Fitness Goal</h2>
+
+    <div>
+        <label for="goalType" class="block text-lg mb-2">Goal Type</label>
+        <select id="goalType" [(ngModel)]="goal.type" class="w-full p-2 mb-4 bg-gray-700 rounded text-white"
+            aria-label="Select your fitness goal type">
+            <option value="" disabled selected>Select a goal</option>
+            <option value="Weight Gain">Weight Gain</option>
+            <option value="Fat Loss">Fat Loss</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="target" class="block text-lg mb-2">Target (kg)</label>
+        <input id="target" [(ngModel)]="goal.target" type="number" class="w-full p-2 bg-gray-700 rounded text-white"
+            placeholder="Enter your target weight" />
+        <p *ngIf="goal.target <= 0" class="text-red-500 text-sm">Please enter a valid target.</p>
+    </div>
+
+    <button (click)="onSaveGoal()" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 p-2 rounded text-white">
+        Save Goal
+    </button>
+</div>
